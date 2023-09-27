@@ -4,7 +4,15 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            
+            string JErryName = Console.ReadLine();
+            if (JErryName == "Jery") 
+            {
+                Console.WriteLine(JErryName);
+            }
+
+            
+
         }
     }
 }
