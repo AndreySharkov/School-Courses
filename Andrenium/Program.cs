@@ -9,6 +9,8 @@
             if (JErryName == "Jery") 
             {
                 Console.WriteLine(JErryName);
+
+                return;
             }
 
             
