@@ -4,12 +4,15 @@
     {
         static void Main(string[] args)
         {
+#pragma warning disable CS8604 // Possible null reference argument.
             int input = int.Parse(Console.ReadLine());
 
             switch(input)
             {
                 case 1:
+
                     int first = int.Parse(Console.ReadLine());
+
 
 
                     int second = int.Parse(Console.ReadLine());
@@ -52,7 +55,7 @@
                 case 4:
                     int n = int.Parse(Console.ReadLine());
                     int charCOde = 0;
-                    for (int i = 0; i <= n; i++)
+                    for (int i = 0; i < n; i++)
                     {
                         char charcter = char.Parse(Console.ReadLine()); 
                         charCOde += charcter;
@@ -61,6 +64,19 @@
 
                     break;
                 case 5:
+                    int input1v1 = int.Parse(Console.ReadLine());
+                    int input1v2 = int.Parse(Console.ReadLine());
+                    
+                    
+
+                    for (int i = input1v1; i >= input1v2; i++)
+                    {
+                        
+                        char RAAAAAAA = Convert.ToChar(i);
+                        Console.Write(RAAAAAAA);
+                        
+                    }
+
 
                     break;
                 case 6:
