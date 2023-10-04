@@ -32,19 +32,32 @@
                 case 2:
                     int Number = int.Parse(Console.ReadLine());
                     double NumSum = 0;
-                    while(Number > 0)
+
+                    do
                     {
-                        Number = Number / 10;
-                        
+
                         NumSum += Number % 10;
-                    }
+                        Number = Number / 10;
+
+                    } while (Number > 0);
+                    
                     Console.WriteLine(NumSum);
                     break;
                 case 3:
-
+                    double peoples = int.Parse(Console.ReadLine());
+                    double capacity = int.Parse(Console.ReadLine());
+                    Console.WriteLine(Math.Ceiling((peoples / capacity)));
                     break;
 
                 case 4:
+                    int n = int.Parse(Console.ReadLine());
+                    int charCOde = 0;
+                    for (int i = 0; i <= n; i++)
+                    {
+                        char charcter = char.Parse(Console.ReadLine()); 
+                        charCOde += charcter;
+                    }
+                    Console.WriteLine($"The sum equals: {charCOde}");
 
                     break;
                 case 5:
