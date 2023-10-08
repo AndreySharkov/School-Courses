@@ -1,4 +1,6 @@
-﻿namespace JeriMoment
+﻿using System;
+
+namespace JeriMoment
 {
     internal class Program
     {
@@ -7,7 +9,7 @@
 #pragma warning disable CS8604 // Possible null reference argument.
             int input = int.Parse(Console.ReadLine());
 
-            switch(input)
+            switch (input)
             {
                 case 1:
 
@@ -43,7 +45,7 @@
                         Number = Number / 10;
 
                     } while (Number > 0);
-                    
+
                     Console.WriteLine(NumSum);
                     break;
                 case 3:
@@ -57,7 +59,7 @@
                     int charCOde = 0;
                     for (int i = 0; i < n; i++)
                     {
-                        char charcter = char.Parse(Console.ReadLine()); 
+                        char charcter = char.Parse(Console.ReadLine());
                         charCOde += charcter;
                     }
                     Console.WriteLine($"The sum equals: {charCOde}");
@@ -66,38 +68,74 @@
                 case 5:
                     int input1v1 = int.Parse(Console.ReadLine());
                     int input1v2 = int.Parse(Console.ReadLine());
-                    
-                    
 
-                    for (int i = input1v1; i >= input1v2; i++)
+                    while (input1v1 <= input1v2)
                     {
-                        
-                        char RAAAAAAA = Convert.ToChar(i);
-                        Console.Write(RAAAAAAA);
-                        
+                        char Char = Convert.ToChar(input1v1);
+                        Console.Write(Char + " ");
+                        input1v1++;
                     }
-
-
                     break;
                 case 6:
-
+                    int input6_1 = int.Parse(Console.ReadLine());
+                    for (int i = 0; i < input6_1; i++)
+                    {
+                        for (int j = 0; j < input6_1; j++)
+                        {
+                            for (int k = 0; k < input6_1; k++)
+                            {
+                                char firstChar = (char)('a' + i);
+                                char secondChar = (char)('a' + j);
+                                char thirdChar = (char)('a' + k);
+                                Console.WriteLine(firstChar + "" + secondChar + "" + thirdChar);
+                            }
+                        }
+                    }
                     break;
                 case 7:
+                    int numberOfLines = int.Parse(Console.ReadLine());
+                    int WaterInTank = 0;
+                    int WaterQuantiti = 0;
+                    for (int i = 0; i < numberOfLines; i++)
+                    {
+                        WaterQuantiti = int.Parse(Console.ReadLine());
+                        if (WaterInTank + WaterQuantiti > 255)
+                        {
+                            Console.WriteLine("Insufficient capacity!");
+
+                        }
+                        else
+                        {
+                            WaterInTank += WaterQuantiti;
+                        }
+                    }
+                    Console.WriteLine(WaterInTank);
+
 
                     break;
                 case 8:
+                    int Input9 = int.Parse(Console.ReadLine());
+                    string biggestKegModel = "";
+                    double maxVolume = -1;
 
+                    for (int i = 0; i < Input9; i++)
+                    {
+                        string model = Console.ReadLine();
+                        double radius = double.Parse(Console.ReadLine());
+                        int height = int.Parse(Console.ReadLine());
+
+                        double volume = Math.PI * Math.Pow(radius, 2) * height;
+
+                        if (volume > maxVolume)
+                        {
+                            maxVolume = volume;
+                            biggestKegModel = model;
+                        }
+                    }
+
+                    Console.WriteLine(biggestKegModel);
                     break;
-                case 9:
-
-                    break;
-                case 10:
-
-                    break;
-
-                case 11:
-
-                    break;
+            }
                     
             }
             
