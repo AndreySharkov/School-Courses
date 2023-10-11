@@ -21,7 +21,7 @@
                     {
                         Console.WriteLine("Invalid day!");
                     }
-                    
+
                     break;
                 case "2":
                     int n = int.Parse(Console.ReadLine());
@@ -32,24 +32,24 @@
                         arr[i] = int.Parse(Console.ReadLine());
                     }
 
-                    
-                    for (int j = arr.Length - 1; j >= 0 ; j--)
+
+                    for (int j = arr.Length - 1; j >= 0; j--)
                     {
                         Console.Write(arr[j] + " ");
                     }
 
-                            
 
-                        break;
+
+                    break;
                 case "3":
                     double[] NUmbers = Console.ReadLine()
-                        .Split(separator:" ",StringSplitOptions.RemoveEmptyEntries)
+                        .Split(separator: " ", StringSplitOptions.RemoveEmptyEntries)
                         .Select(double.Parse).ToArray();
-                    
-                    
+
+
                     for (int i = 0; i < NUmbers.Length; i++)
                     {
-                        
+
                         Console.WriteLine($"{NUmbers[i]} => {Math.Round(NUmbers[i], MidpointRounding.AwayFromZero)}");
                     }
 
@@ -88,7 +88,7 @@
                         .Select(int.Parse).ToArray();
                     int sumEven = 0;
                     int sumOdd = 0;
-                    foreach(int number in Nums)
+                    foreach (int number in Nums)
                     {
                         if (number % 2 == 0)
                         {

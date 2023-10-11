@@ -1,4 +1,6 @@
-﻿namespace ArraysExercises2
+﻿using System.Runtime.InteropServices;
+
+namespace ArraysExercises2
 {
     internal class Program
     {
@@ -68,21 +70,39 @@
                     int[] array4 = Console.ReadLine()
                         .Split(separator: " ", StringSplitOptions.RemoveEmptyEntries)
                         .Select(int.Parse).ToArray();
-                    int biigestNum = 0;
-                    int biigestNumLenght = 0;
-                    foreach (int i in array4)
+                    int Sequence = 1;
+                    int bigestNum = 0;
+                    int bigestNumLenght = 0;
+                    for (int i = 0; i < array4.Length; i++)
                     {
-                        if(i > biigestNum)
+                        int currentNummber = array4[i];
+                        for (int j = i +1 ; j < array4.Length; j++)
                         {
-                            biigestNum = i;
-                            biigestNumLenght++;
+                            int rightNumber = array4[j];
+                            if (currentNummber == rightNumber)
+                            {
+                                Sequence++;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                            
+                        }
+                        if (Sequence > bigestNumLenght)
+                        {
+                            bigestNumLenght = Sequence;
+                            bigestNum = 0;
+                        }
+                        Sequence = 0;
+                        for (int i = 0; i < bigestNumLenght; i++)
+                        {
+                            Console.WriteLine($"{bigestNum}");
                         }
                     }
-                    for (int i = biigestNumLenght; i <= array4.Length - biigestNumLenght; i++)
-                    {
-                        
-                        Console.Write(string.Join(separator: " ", array4));
-                    }
+                    
+                    
+                    
 
                     break;
             }
