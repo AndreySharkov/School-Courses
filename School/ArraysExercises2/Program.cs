@@ -67,44 +67,94 @@ namespace ArraysExercises2
                     Console.WriteLine(string.Join(separator: " ", array3));
                     break; 
                 case 4:
-                    int[] array4 = Console.ReadLine()
-                        .Split(separator: " ", StringSplitOptions.RemoveEmptyEntries)
-                        .Select(int.Parse).ToArray();
-                    int Sequence = 1;
-                    int bigestNum = 0;
-                    int bigestNumLenght = 0;
-                    for (int i = 0; i < array4.Length; i++)
+                    int[] arr = Console.ReadLine().Split().Select(int.Parse).ToArray();
+
+                    for (int i = 0; i < arr.Length - 1 ; i++)
                     {
-                        int currentNummber = array4[i];
-                        for (int j = i +1 ; j < array4.Length; j++)
+                        bool greater = true;
+                        for (int j = i + 1; j < arr.Length; j++)
                         {
-                            int rightNumber = array4[j];
-                            if (currentNummber == rightNumber)
+                            if (arr[i] < arr[j])
                             {
-                                Sequence++;
+                                greater = false;
+                                break;
                             }
-                            else
+                        }
+                        if (greater)
+                        {
+                            Console.Write($"{arr[i]} ");
+                        }
+                    }
+
+                    Console.Write(arr[arr.Length - 1]);
+                    break;
+                
+                case 5:
+                    int[] arr1 = Console.ReadLine().Split().Select(int.Parse).ToArray();
+
+                    for (int i = 0; i < arr1.Length; i++)
+                    {
+                        int n = arr1[i];
+                        int leftSum = 0;
+                        int rightSum = 0;
+
+                        for (int j = i + 1; j < arr1.Length; j++)
+                        {
+                            rightSum += arr1[j];
+                        }
+
+                        for (int x = 0; x < i; x++)
+                        {
+                            leftSum += arr1[x];
+                        }
+
+                        if (leftSum == rightSum)
+                        {
+                            Console.WriteLine(i);
+                            return;
+                        }
+
+                    }
+
+                    Console.WriteLine("no");
+                    break;
+                case 6:
+                    int[] arr2 = Console.ReadLine().Split().Select(int.Parse).ToArray();
+
+                    int bestCount = 0;
+                    int bestN = 0;
+
+                    for (int i = 0; i < arr2.Length; i++)
+                    {
+                        int n = arr2[i];
+
+                        int count = 1;
+                        for (int j = i + 1; j < arr2.Length; j++)
+                        {
+                            if (arr2[j] != n)
                             {
                                 break;
                             }
-                            
+
+                            count++;
                         }
-                        if (Sequence > bigestNumLenght)
+
+                        if (bestCount < count)
                         {
-                            bigestNumLenght = Sequence;
-                            bigestNum = 0;
+                            bestCount = count;
+                            bestN = n;
                         }
-                        Sequence = 0;
-                        for (int i = 0; i < bigestNumLenght; i++)
-                        {
-                            Console.WriteLine($"{bigestNum}");
-                        }
+
                     }
-                    
-                    
-                    
+
+                    for (int i = 0; i < bestCount; i++)
+                    {
+                        Console.Write($"{bestN} ");
+                    }
 
                     break;
+
+
             }
         }
     }
