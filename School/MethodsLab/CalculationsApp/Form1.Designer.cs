@@ -42,29 +42,32 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(59, 49);
+            label1.Font = new Font("Unispace", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(52, 37);
             label1.Name = "label1";
-            label1.Size = new Size(68, 20);
+            label1.Size = new Size(91, 14);
             label1.TabIndex = 0;
-            label1.Text = "FirstNum";
+            label1.Text = "First Number";
             label1.Click += label1_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(59, 79);
+            label2.Font = new Font("Unispace", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(52, 59);
             label2.Name = "label2";
-            label2.Size = new Size(90, 20);
+            label2.Size = new Size(105, 14);
             label2.TabIndex = 1;
-            label2.Text = "SecondNum";
+            label2.Text = "Second Number:";
             label2.Click += label2_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(59, 112);
+            label3.Font = new Font("Unispace", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(52, 84);
             label3.Name = "label3";
-            label3.Size = new Size(76, 20);
+            label3.Size = new Size(70, 14);
             label3.TabIndex = 2;
             label3.Text = "Operation";
             label3.Click += label3_Click;
@@ -72,42 +75,51 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(59, 212);
+            label4.Font = new Font("Unispace", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(52, 111);
             label4.Name = "label4";
-            label4.Size = new Size(50, 20);
+            label4.Size = new Size(82, 23);
             label4.TabIndex = 3;
-            label4.Text = "label4";
+            label4.Text = "Result";
             label4.Click += label4_Click;
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(154, 42);
+            numericUpDown1.BackColor = SystemColors.MenuBar;
+            numericUpDown1.Location = new Point(206, 29);
+            numericUpDown1.Margin = new Padding(3, 2, 3, 2);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(150, 27);
+            numericUpDown1.Size = new Size(131, 23);
             numericUpDown1.TabIndex = 4;
+            numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             // 
             // numericUpDown2
             // 
-            numericUpDown2.Location = new Point(153, 79);
+            numericUpDown2.BackColor = SystemColors.MenuBar;
+            numericUpDown2.Location = new Point(205, 56);
+            numericUpDown2.Margin = new Padding(3, 2, 3, 2);
             numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(150, 27);
+            numericUpDown2.Size = new Size(131, 23);
             numericUpDown2.TabIndex = 5;
             numericUpDown2.ValueChanged += numericUpDown2_ValueChanged;
             // 
             // comboBox1
             // 
+            comboBox1.BackColor = SystemColors.Info;
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "add", "subtrack", "multiply", "divide" });
-            comboBox1.Location = new Point(152, 112);
+            comboBox1.Location = new Point(204, 81);
+            comboBox1.Margin = new Padding(3, 2, 3, 2);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
+            comboBox1.Size = new Size(133, 23);
             comboBox1.TabIndex = 6;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(469, 368);
+            ClientSize = new Size(410, 276);
             Controls.Add(comboBox1);
             Controls.Add(numericUpDown2);
             Controls.Add(numericUpDown1);
@@ -115,6 +127,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Calculations app";
             Load += Form1_Load;
