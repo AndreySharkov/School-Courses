@@ -12,9 +12,11 @@
             int check = 0;
             if (HasRequiredPassWordSize(password)) check++;
 
-            if(HasEnoughtDigitAccept(password))check++;
+            if (HasRequiredAlphanumeriCharacters(password)) check++;
 
-            if(HasRequiredAlphanumeriCharacters(password)) check++;
+            if (HasEnoughtDigitAccept(password))check++;
+
+            
 
             if (check == 3)
             {
