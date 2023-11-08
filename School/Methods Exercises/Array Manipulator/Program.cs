@@ -29,8 +29,9 @@ class ArrayManipulator
             }
             else if (command[0] == "max" || command[0] == "min")
             {
+                string MinMax = command[0];
                 string type = command[1];
-                int index = GetMaxMinIndex(array, type);
+                int index = GetMaxMinIndex(array,MinMax, type);
                 if (index == -1)
                 {
                     Console.WriteLine("No matches");
@@ -66,7 +67,7 @@ class ArrayManipulator
         return secondPart.Concat(firstPart).ToList();
     }
 
-    static int GetMaxMinIndex(List<int> array, string type)
+    static int GetMaxMinIndex(List<int> array,string MinMax, string type)
     {
         List<int> filteredArray = type == "even" ? array.Where(x => x % 2 == 0).ToList() : array.Where(x => x % 2 != 0).ToList();
 
@@ -75,8 +76,14 @@ class ArrayManipulator
             return -1;
         }
 
-        int extremum = type == "even" ? filteredArray.Max() : filteredArray.Min();
-        return array.LastIndexOf(extremum);
+        if (MinMax == "max")
+        {
+            return array.LastIndexOf(filteredArray.Max());
+        }
+        else
+        {
+            return array.LastIndexOf(filteredArray.Min());
+        }
     }
 
     static List<int> GetFirstLastElements(List<int> array, int count, string type, bool isFirst)
