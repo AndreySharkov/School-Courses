@@ -1,39 +1,32 @@
-﻿using System;
-
-namespace Messaging
+﻿class Messaging
 {
-    internal class Program
+    static int CalculateSumOfDigits(int num)
     {
-        static void Main(string[] args)
-        {
-            List<int> numbers = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
-            List<string> text = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries).ToList();
-            Console.WriteLine(ProcessMessage(numbers, text));
-        }
-        static string ProcessMessage(List<int> numbers, List<string> text)
-        {
-            
-            List<int> result = new List<int>();
-            string messages = "";
-            foreach (int number in numbers)
-            {
-                int sum = 0;
-                int num = number;
-                num = Math.Abs(num);
-                while (num > 0)
-                { 
-                    sum += num % 10;
-                    num /= 10;
-                }
-                result.Add(num);
-            }
-            foreach (int n in result)
-            {
-                messages += messages + text[n];
-            }
+        return num.ToString().Sum(c => c - '0');
+    }
 
+    static string ProcessMessage(List<int> numbers, string message)
+    {
+        List<char> result = new List<char>();
 
-            return messages;
+        foreach (int num in numbers)
+        {
+
+            int digitSum = CalculateSumOfDigits(num);
+            int index = digitSum % message.Length;
+            result.Add(message[index]);
+
+            message = message.Remove(index, 1);
         }
+
+        return new string(result.ToArray());
+    }
+
+    static void Main()
+    {
+        List<int> numbers = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
+        string text = Console.ReadLine();
+        Console.WriteLine(ProcessMessage(numbers, text));
+        
     }
 }
