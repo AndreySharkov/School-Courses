@@ -4,14 +4,13 @@
     {
         static void Main(string[] args)
         {
-            string input = Console.ReadLine();
+            var input = Console.ReadLine();
 
             var values = input.Split(' ');
 
-            Stack<string> stack = new Stack<string>(values.Reverse());
+            var stack = new Stack<string>(values.Reverse());
 
             while (stack.Count > 1)
-
             {
 
                 int first = int.Parse(stack.Pop());
@@ -28,13 +27,6 @@
                 case "-":
                      stack.Push((first - second).ToString());
                         break;
-                case "*":
-                     stack.Push((first * second).ToString());
-                     break;
-                case "/":
-                     stack.Push((first / second).ToString());
-                     break;
-
                 }
 
             }
