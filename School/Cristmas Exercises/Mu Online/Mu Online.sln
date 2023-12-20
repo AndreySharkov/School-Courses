@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mu Online", "Mu Online.csproj", "{162C9E17-3E27-4710-AF23-944EC4E892FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{162C9E17-3E27-4710-AF23-944EC4E892FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{162C9E17-3E27-4710-AF23-944EC4E892FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{162C9E17-3E27-4710-AF23-944EC4E892FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{162C9E17-3E27-4710-AF23-944EC4E892FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4AF9A76-38A2-4DBE-832E-24FF13E19696}
+	EndGlobalSection
+EndGlobal
