@@ -8,14 +8,24 @@
             int health = 100;
             int bitcoins = 0;
             int rooms = 0;
-            foreach(string move in moves)
+            int WeirdHEalth;
+            foreach (string move in moves)
             {
                 string[] moveArr = move.Split().ToArray();
+                rooms++;
                 if (moveArr[0] == "potion")
                 {
                     health += int.Parse(moveArr[1]);
-                    Console.WriteLine($"You healed for {int.Parse(moveArr[1])} hp.");
-                    Console.WriteLine($"Current health: {health} hp");
+                    WeirdHEalth = health;
+                    if (health > 100)
+                    {
+                        health = 100;
+                    }
+                    
+
+
+                    Console.WriteLine($"You healed for {int.Parse(moveArr[1]) - (WeirdHEalth - health)} hp.");
+                    Console.WriteLine($"Current health: {health} hp.");
                 }
                 else if (moveArr[0] == "chest")
                 {
@@ -25,7 +35,7 @@
                 else
                 {
                     health -= int.Parse(moveArr[1]);
-                    if (health <= 0)
+                    if (health > 0)
                     {
                         Console.WriteLine($"You slayed {moveArr[0]}.");
                     }
@@ -36,12 +46,12 @@
                         return;
                     }
                 }
-                rooms++;
+                
 
             }
-            Console.WriteLine("You ve made it!" +
-                $"Bitcoins: {bitcoins}" +
-                $"Health: {health}");
+            Console.WriteLine("You've made it!");
+            Console.WriteLine($"Bitcoins: {bitcoins}");
+            Console.WriteLine($"Health: {health}");
 
         }
     }
