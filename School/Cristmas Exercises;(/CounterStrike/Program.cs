@@ -2,32 +2,40 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            int energy = int.Parse(Console.ReadLine());
-            string command;
-            int battlesWon = 0;
-            while ((command = Console.ReadLine()) != "End of battle")
+            int initialEnergy = int.Parse(Console.ReadLine());
+
+            int wonBattles = 0;
+
+            while (true)
             {
-                int commandInt = int.Parse(command);
-                
-                
-                if(energy < commandInt)
+                string input = Console.ReadLine();
+
+                if (input == "End of battle")
                 {
-                    Console.WriteLine($"Not enough energy! Game ends with {battlesWon} won battles and 0 energy");
-                    return;
-                }
-                energy -= commandInt;
-                battlesWon++;
-                if (battlesWon % 3 == 0)
-                {
-                    energy += battlesWon;
+                    Console.WriteLine($"Won battles: {wonBattles}. Energy left: {initialEnergy}");
+                    break;
                 }
 
+                int distance = int.Parse(input);
 
+                if (initialEnergy >= distance)
+                {
+                    initialEnergy -= distance;
+                    wonBattles++;
+
+                    if (wonBattles % 3 == 0)
+                    {
+                        initialEnergy += wonBattles;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Not enough energy! Game ends with {wonBattles} won battles and {initialEnergy} energy");
+                    break;
+                }
             }
-            Console.WriteLine($"Won battles: {battlesWon}. Energy left: {energy}");
-
         }
     }
 }
