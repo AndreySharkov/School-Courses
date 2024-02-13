@@ -1,46 +1,62 @@
-﻿namespace ForceBook
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ForceBook
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Dictionary<string, List<string>> dictionary = new Dictionary<string, List<string>>();
+            SortedDictionary<string, List<string>> dictionary = new SortedDictionary<string, List<string>>();
             string inputString;
-            while((inputString = Console.ReadLine()) != "Lumpawaroo")
+
+            while ((inputString = Console.ReadLine()) != "Lumpawaroo")
             {
-                string[] input = inputString.Split();
-                if (input[1] == "|")
+                if (inputString.Contains("|"))
                 {
-                    if (!dictionary.ContainsKey(input[0]))
+                    string side = inputString.Split('|')[0].Trim();
+                    string user = inputString.Split('|')[1].Trim();
+
+                    if (!dictionary.ContainsKey(side))
                     {
-                        dictionary.Add(input[0], new List<string>());
-                        dictionary[input[0]].Add(input[2]);
+                        dictionary.Add(side, new List<string>());
                     }
-                    else
-                    {
-                        dictionary[input[0]].Add(input[2]);
-                    }
+
+                    dictionary[side].Add(user);
                 }
-                else
+                else if (inputString.Contains("->"))
                 {
-                    Console.WriteLine($"{input[2]} joins the {input[0]} side!");
+                    string side = inputString.Split("->")[1].Trim();
+                    string user = inputString.Split("->")[0].Trim();
+
+                    Console.WriteLine($"{user} joins the {side} side!");
+
                     foreach (var key in dictionary.Keys)
                     {
-                        dictionary[key].Remove(input[2]);
+                        dictionary[key].Remove(user);
                     }
-                    if (!dictionary.ContainsKey(input[0]))
+
+                    if (!dictionary.ContainsKey(side))
                     {
-                        dictionary.Add(input[0], new List<string>());
-                        dictionary[input[0]].Add(input[2]);
+                        dictionary.Add(side, new List<string>());
                     }
-                    else
-                    {
-                        dictionary[input[0]].Add(input[2]);
-                    }
+
+                    dictionary[side].Add(user);
                 }
-                
             }
 
+            foreach (var key in dictionary.OrderByDescending(x => x.Value.Count).ThenBy(x => x.Key))
+            {
+                if (key.Value.Count > 0)
+                {
+                    Console.WriteLine($"Side: {key.Key}, Members: {key.Value.Count}");
+                    foreach (var value in key.Value.OrderBy(x => x))
+                    {
+                        Console.WriteLine($"! {value}");
+                    }
+                }
+            }
         }
     }
 }
