@@ -21,10 +21,13 @@
                     {
                         string currentItem = loot[i + 1].ToLower();
                         if (items.ContainsKey(currentItem))
+                        {
                             items[currentItem] += int.Parse(loot[i]);
+                        }
                         else
+                        {
                             items.Add(currentItem, int.Parse(loot[i]));
-
+                        }
                         if (items.ContainsKey("shards") && items["shards"] >= 250)
                         {
                             Console.WriteLine("Shadowmourne obtained!");
