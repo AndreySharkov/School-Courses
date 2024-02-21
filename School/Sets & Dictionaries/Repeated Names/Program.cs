@@ -1,0 +1,19 @@
+﻿namespace Repeated_Names
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int names = int.Parse(Console.ReadLine());
+            HashSet<string> set = new HashSet<string>();
+            for(int i = 0; i < names; i++)
+            {
+                set.Add(Console.ReadLine());
+            }
+            foreach(var i  in set)
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+}
