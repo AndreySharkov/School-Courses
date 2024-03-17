@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multiply Big Number", "Multiply Big Number.csproj", "{A83E50B9-2270-4AA7-8744-90372768E6D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A83E50B9-2270-4AA7-8744-90372768E6D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A83E50B9-2270-4AA7-8744-90372768E6D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A83E50B9-2270-4AA7-8744-90372768E6D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A83E50B9-2270-4AA7-8744-90372768E6D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02C347F3-5210-49E0-83DD-60708B813532}
+	EndGlobalSection
+EndGlobal
