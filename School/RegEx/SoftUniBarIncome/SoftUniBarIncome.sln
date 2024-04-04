@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftUniBarIncome", "SoftUniBarIncome.csproj", "{549D3F37-C80E-4391-98F0-A1C9A3566A34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{549D3F37-C80E-4391-98F0-A1C9A3566A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{549D3F37-C80E-4391-98F0-A1C9A3566A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{549D3F37-C80E-4391-98F0-A1C9A3566A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{549D3F37-C80E-4391-98F0-A1C9A3566A34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41C516EB-EC24-4F84-AE63-1730E09DA1A9}
+	EndGlobalSection
+EndGlobal
