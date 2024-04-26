@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarManufacturer
+namespace Car
 {
     public class Car
     {
@@ -14,71 +14,75 @@ namespace CarManufacturer
         private double fuelQuantity;
         private double fuelConsumption;
 
-        public double FuelQuantity
-        {
-            get { return this.fuelQuantity; }
-            set { this.fuelQuantity = value; }
-        }
-        public double FuelConsumption
-        {
-            get { return this.fuelConsumption; }
-            set { this.fuelConsumption = value; }
-        }
-
         public string Make
         {
-            get { return this.make; }
-            set { this.make = value; }
+            get { return make; }
+            set { make = value; }
         }
+
         public string Model
         {
-            get { return this.model; }
-            set { this.model = value; }
+            get { return model; }
+            set { model  = value; }
         }
 
         public int Year
         {
-
-            get { return this.year; }
-            set { this.year = value; }
+            get { return year; }
+            set { year = value; }
         }
 
-        public void Drive(double distance)
+        public double FuelQuantity
         {
-            if (this.FuelQuantity - distance * this.FuelConsumption < 0)
-            {
-                Console.WriteLine("Not enough fuel to perform this trip!");
-            }
-            else
-            {
-                this.FuelQuantity = this.FuelQuantity - distance * this.FuelConsumption;
-            }
+            get { return fuelQuantity; }
+            set { fuelQuantity = value; }
         }
 
-        public string WhoAmI()
+        public double FuelConsumption
         {
-            return ($"Make: {this.Make}\nModel: {this.Model}\nYear: {this.Year}\nFuel: {this.FuelQuantity:F02}L");
+            get { return fuelConsumption; }
+            set { fuelConsumption = value; }
         }
+
         public Car()
         {
-                
+            this.Make = "VW";
+            this.Model = "Golf";
+            this.Year = 2025;
+            this.FuelQuantity = 200;   
+            this.FuelConsumption = 10;
         }
+
         public Car(string make, string model, int year)
             :this()
         {
             this.Make = make;
             this.Model = model;
-            this. Year = year;
+            this.Year = year;
         }
+
         public Car(string make, string model, int year, double fuelQuantity, double fuelConsumption)
-           : this(make, model, year)
+            :this(make, model, year)
         {
-            
             this.FuelQuantity = fuelQuantity;
             this.FuelConsumption = fuelConsumption;
         }
 
+        public void Drive(double distance)
+        {
+            if (fuelQuantity - (distance * fuelConsumption) > 0)
+            {
+                fuelQuantity -= distance * fuelConsumption;
+            }
+            else
+            {
+                Console.WriteLine("Not enough fuel to perform this trip.");
+            }
+        }
 
-
+        public string WhoAmI()
+        {
+            return make;
+        }
     }
 }
