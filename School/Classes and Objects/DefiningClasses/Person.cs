@@ -8,18 +8,18 @@ namespace DefiningClasses
 {
     public class Person
     {
-        private string? name;
+        private string name;
         private int age;
 
-        public string? Name
+        public string Name
         {
-            get { return name; }
-            set { name = value; }
+            get { return this.name; }
+            set { this.name = value; }
         }
 
         public int Age
         {
-            get { return age; }
+            get { return this.age; }
             set { age = value; }
         }
     }
