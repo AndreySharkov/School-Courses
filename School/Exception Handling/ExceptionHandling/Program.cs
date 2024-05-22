@@ -4,7 +4,19 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            
+            throw new PrinterException("Printer is out of paper!");
+        }
+        public class PrinterException : Exception
+        {
+            public PrinterException(string msg)
+            : base(msg) { }
+
         }
     }
 }
+//inavalid parameter to method
+//ArgumentException,ArgumentNullException,ArgumentOutOfRangeException;
+//when a operation is not suported 
+// ExceptionNotSUpported
+//
