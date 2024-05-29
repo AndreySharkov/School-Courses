@@ -7,10 +7,9 @@ namespace Cards
     {
         static void Main(string[] args)
         {
-            string input = Console.ReadLine();
-            string[] cardDefinitions = input.Split(", ");
-            List<string> outputCards = new List<string>();
 
+            string[] cardDefinitions = Console.ReadLine().Split(", ");
+            List<string> outputCards = new List<string>();
             foreach (string cardDefinition in cardDefinitions)
             {
                 try
@@ -21,6 +20,7 @@ namespace Cards
                         throw new Exception("Invalid card!");
                     }
                     Card card = new Card(parts[0], parts[1]);
+                    
                     outputCards.Add(card.ToString());
                 }
                 catch (Exception)
@@ -28,9 +28,7 @@ namespace Cards
                     Console.WriteLine("Invalid card!");
                 }
                 
-
             }
-
             Console.WriteLine(string.Join(" ", outputCards));
         }
     }
@@ -44,21 +42,19 @@ namespace Cards
             { "D", "\u2666" },
             { "C", "\u2663" }
         };
-
+        
         public string Face { get; }
         public string Suit { get; }
-
         public Card(string face, string suit)
         {
             if (!ValidFaces.Contains(face) || !ValidSuits.ContainsKey(suit))
             {
                 throw new Exception("Invalid card!");
             }
-
             Face = face;
             Suit = suit;
+            
         }
-
         public override string ToString()
         {
             return $"[{Face}{ValidSuits[Suit]}]";
