@@ -1,4 +1,4 @@
-﻿namespace MySecretFolder
+﻿namespace _20_Project_My_Secret_Folder
 {
     partial class NewFolderForm
     {
@@ -29,79 +29,85 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            enterFileNameLabel = new Label();
+            label1 = new Label();
             textBoxFolderName = new TextBox();
-            enterButton = new Button();
-            errorProviderForFolderName = new ErrorProvider(components);
-            labelErrorMessage = new Label();
-            ((System.ComponentModel.ISupportInitialize)errorProviderForFolderName).BeginInit();
+            buttonEnter = new Button();
+            errorProviderFolderName = new ErrorProvider(components);
+            labelError = new Label();
+            ((System.ComponentModel.ISupportInitialize)errorProviderFolderName).BeginInit();
             SuspendLayout();
             // 
-            // enterFileNameLabel
+            // label1
             // 
-            enterFileNameLabel.AutoSize = true;
-            enterFileNameLabel.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            enterFileNameLabel.Location = new Point(110, 71);
-            enterFileNameLabel.Name = "enterFileNameLabel";
-            enterFileNameLabel.Size = new Size(292, 38);
-            enterFileNameLabel.TabIndex = 0;
-            enterFileNameLabel.Text = "Please enter file name";
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(79, 30);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(229, 56);
+            label1.TabIndex = 0;
+            label1.Text = "Folder name:";
+            label1.TextAlign = ContentAlignment.TopCenter;
             // 
             // textBoxFolderName
             // 
-            textBoxFolderName.BackColor = Color.PeachPuff;
-            textBoxFolderName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxFolderName.Location = new Point(136, 112);
+            textBoxFolderName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxFolderName.Location = new Point(47, 95);
+            textBoxFolderName.Margin = new Padding(2, 2, 2, 2);
             textBoxFolderName.Name = "textBoxFolderName";
-            textBoxFolderName.Size = new Size(227, 34);
+            textBoxFolderName.Size = new Size(300, 23);
             textBoxFolderName.TabIndex = 1;
+            textBoxFolderName.Validating += ValidateTextBoxFolderName;
             // 
-            // enterButton
+            // buttonEnter
             // 
-            enterButton.BackColor = Color.Teal;
-            enterButton.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            enterButton.Location = new Point(196, 181);
-            enterButton.Name = "enterButton";
-            enterButton.Size = new Size(100, 34);
-            enterButton.TabIndex = 4;
-            enterButton.Text = "Enter";
-            enterButton.UseVisualStyleBackColor = false;
-            enterButton.Click += this.enterBtn_Click;
+            buttonEnter.Anchor = AnchorStyles.Bottom;
+            buttonEnter.Location = new Point(142, 184);
+            buttonEnter.Margin = new Padding(2, 2, 2, 2);
+            buttonEnter.Name = "buttonEnter";
+            buttonEnter.Size = new Size(78, 20);
+            buttonEnter.TabIndex = 2;
+            buttonEnter.Text = "Enter";
+            buttonEnter.UseVisualStyleBackColor = true;
+            buttonEnter.Click += buttonEnter_Click;
             // 
-            // errorProviderForFolderName
+            // errorProviderFolderName
             // 
-            errorProviderForFolderName.ContainerControl = this;
+            errorProviderFolderName.ContainerControl = this;
             // 
-            // labelErrorMessage
+            // labelError
             // 
-            labelErrorMessage.AutoSize = true;
-            labelErrorMessage.Location = new Point(136, 149);
-            labelErrorMessage.Name = "labelErrorMessage";
-            labelErrorMessage.Size = new Size(0, 20);
-            labelErrorMessage.TabIndex = 5;
+            labelError.AutoSize = true;
+            labelError.Location = new Point(47, 120);
+            labelError.Margin = new Padding(2, 0, 2, 0);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(12, 15);
+            labelError.TabIndex = 3;
+            labelError.Text = "*";
             // 
             // NewFolderForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(511, 284);
-            Controls.Add(labelErrorMessage);
-            Controls.Add(enterButton);
+            ClientSize = new Size(371, 244);
+            Controls.Add(labelError);
+            Controls.Add(buttonEnter);
             Controls.Add(textBoxFolderName);
-            Controls.Add(enterFileNameLabel);
+            Controls.Add(label1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "NewFolderForm";
-            Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)errorProviderForFolderName).EndInit();
+            Text = "New Folder";
+            ((System.ComponentModel.ISupportInitialize)errorProviderFolderName).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label enterFileNameLabel;
+        private Label label1;
         private TextBox textBoxFolderName;
-        private Button enterButton;
-        private ErrorProvider errorProviderForFolderName;
-        private Label labelErrorMessage;
+        private Button buttonEnter;
+        private ErrorProvider errorProviderFolderName;
+        private Label labelError;
     }
 }

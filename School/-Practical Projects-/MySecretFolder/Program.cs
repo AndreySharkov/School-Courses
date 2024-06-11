@@ -1,4 +1,4 @@
-namespace MySecretFolder
+namespace _20_Project_My_Secret_Folder
 {
     internal static class Program
     {

@@ -1,49 +1,67 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MySecretFolder
+namespace _20_Project_My_Secret_Folder
 {
     public partial class NewFolderForm : Form
     {
-        private string currentFilePath;
-        public string FolderName { get; private set; }
+        private readonly string filePath;
 
-        public NewFolderForm(string path)
+        public string FolderName { get; set; }
+
+        public NewFolderForm()
         {
             InitializeComponent();
-            currentFilePath = path;
+        }
+        public NewFolderForm(string filePath)
+            : this()
+        {
+            this.filePath = filePath;
         }
 
-        private void enterBtn_Click(object sender, EventArgs e)
+        private void buttonEnter_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren())
+            if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                FolderName = textBoxFolderName.Text.Trim();
-                DialogResult = DialogResult.OK;
-                Close();
+                this.FolderName = textBoxFolderName.Text.Trim();
+                this.DialogResult = DialogResult.OK;
+
             }
         }
 
-        private void validateTextBoxFolderName(object sender, CancelEventArgs e)
+        private void ValidateTextBoxFolderName(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBoxFolderName.Text) || Directory.Exists(Path.Combine(currentFilePath, textBoxFolderName.Text)))
+            if (string.IsNullOrWhiteSpace(this.textBoxFolderName.Text))
             {
                 e.Cancel = true;
-                SetErrorMessage("Invalid folder name or folder already exists.");
+                this.textBoxFolderName.Focus();
+                SetErrorMessage("Cannot create folder with no name");
+            }
+            else if (Directory.Exists(Path.Combine(this.filePath, textBoxFolderName.Text)))
+            {
+                e.Cancel = true;
+                this.textBoxFolderName.Focus();
+                SetErrorMessage("A folder with the same name already exists");
             }
             else
             {
-                errorProviderForFolderName.SetError(textBoxFolderName, string.Empty);
-                labelErrorMessage.Text = string.Empty;
+                e.Cancel = false;
+                SetErrorMessage(string.Empty);
             }
+
         }
 
         private void SetErrorMessage(string message)
         {
-            errorProviderForFolderName.SetError(textBoxFolderName, message);
-            labelErrorMessage.Text = message;
+            this.errorProviderFolderName.SetError(this.textBoxFolderName, message);
+            this.labelError.Text = message;
         }
     }
 }
