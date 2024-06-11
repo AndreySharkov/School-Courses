@@ -1,4 +1,4 @@
-namespace Wordle
+namespace WordleProject1
 {
     internal static class Program
     {

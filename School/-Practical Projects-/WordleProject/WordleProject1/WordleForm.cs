@@ -1,4 +1,4 @@
-namespace Wordle
+namespace WordleProject1
 {
     public partial class WordleForm : Form
     {
@@ -55,20 +55,15 @@ namespace Wordle
             textBox.Focus();
         }
 
-        private bool ShouldGoToLeftTextBox(Keys pressedKey, int currentTextBoxIndex)
+        private bool ShouldGoToLeftTextBox(Keys pressedKey, int currentTextBoxIndex) 
             => pressedKey == Keys.Left && !IsFirstTextBox(currentTextBoxIndex);
-
-        private bool IsFirstTextBox(int currentTextBoxIndex)
+        private bool IsFirstTextBox(int currentTextBoxIndex) 
             => (currentTextBoxIndex + 4) % RowLength == 0;
-
-        private bool ShouldGoToRightTextBox(Keys pressedKey, int currentTextBoxIndex)
-           => (pressedKey == Keys.Right || IsAlphabetKeyPressed(pressedKey.ToString())) && !IsLastTextBox(currentTextBoxIndex);
-
-        private bool IsLastTextBox(int currentTextBoxIndex)
+        private bool ShouldGoToRightTextBox(Keys pressedKey, int currentTextBoxIndex) => (pressedKey == Keys.Right || IsAlphabetKeyPressed(pressedKey.ToString())) && !IsLastTextBox(currentTextBoxIndex);
+        private bool IsLastTextBox(int currentTextBoxIndex) 
             => currentTextBoxIndex % RowLength == 0;
-
-        private bool IsAlphabetKeyPressed(string pressedKeyString)
-            => pressedKeyString.Count() == 1 && char.IsLetter(pressedKeyString[0]);
+        private bool IsAlphabetKeyPressed(string pressedKeystring) 
+            => pressedKeystring.Count() == 1 && char.IsLetter(pressedKeystring[0]);
 
         private TextBox GetTextBox(int index)
         {
