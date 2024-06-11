@@ -17,7 +17,7 @@ namespace PongProject
         private bool _isGoingDown;
         private bool _isGoingRight;
 
-        public Ball(int x, int y, char tile = '0')
+        public Ball(int x, int y, char tile = 'O')
         {
             this._x = this._initialX = x;
             this._y = this._initialY = y;
