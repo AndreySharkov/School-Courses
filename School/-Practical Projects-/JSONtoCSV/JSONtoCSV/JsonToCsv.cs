@@ -33,10 +33,10 @@ namespace JSONtoCSV
 
             Match match = Regex.Match(userInput, userInputValidator);
 
-                if (!match.Success)
-                {
-                   throw new Exception("Invalid input request");
-                }
+            if (!match.Success)
+            {
+                throw new Exception("Invalid input request");
+            }
 
         }
 
@@ -51,11 +51,10 @@ namespace JSONtoCSV
             }
             else if (statusCode != HttpStatusCode.OK)
             {
-              throw new Exception("An error apeared! Try again.");
-
+                throw new Exception("An error apeared! Try again.");
             }
             
-             string responseAsString = ReadResponseAsStringAsync(response);
+            string responseAsString = ReadResponseAsStringAsync(response);
 
             try
             {
