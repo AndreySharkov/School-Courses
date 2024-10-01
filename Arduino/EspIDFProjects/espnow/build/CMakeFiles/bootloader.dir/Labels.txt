@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+M:/RobotikaShit/EspIDFProjects/espnow/build/CMakeFiles/bootloader
+M:/RobotikaShit/EspIDFProjects/espnow/build/CMakeFiles/bootloader.rule
+M:/RobotikaShit/EspIDFProjects/espnow/build/CMakeFiles/bootloader-complete.rule
+M:/RobotikaShit/EspIDFProjects/espnow/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+M:/RobotikaShit/EspIDFProjects/espnow/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+M:/RobotikaShit/EspIDFProjects/espnow/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+M:/RobotikaShit/EspIDFProjects/espnow/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+M:/RobotikaShit/EspIDFProjects/espnow/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+M:/RobotikaShit/EspIDFProjects/espnow/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+M:/RobotikaShit/EspIDFProjects/espnow/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
