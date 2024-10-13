@@ -22,9 +22,20 @@
     background-color: #043e65;
     position: absolute;
     left: 0;
-    top: 75%;
+    top: 94.5%;
     transform: translateY(-50%);
   }
+  .obstacle {
+    width: 100px;
+    height: 20px;
+    background-color: #000000;
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    
+    transform: translateY(-50%);
+  }
+
   
 
   
