@@ -4,8 +4,22 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
-  /* Body styling */
+ 
+
+  h1{
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 20px;
+    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    position: absolute;
+    left:0%;
+    top: 0%;
+
+  }
   body {
     display: flex;
     justify-content: center;
@@ -14,27 +28,70 @@
     background-color: #f0f0f0;
     overflow: hidden;
   }
+  .ground
+  {
+    width: 2000px;
+    
+    height: 20px;
+    background-color: #043e65;
+    position: absolute;
+    left: 0;
+    top: 99%;
+    transform: translateY(-50%);
+
+  }
   
-  /* Cube styling */
   .cube {
     width: 50px;
     height: 50px;
     background-color: #043e65;
     position: absolute;
     left: 0;
-    top: 94.5%;
+    top: 94%;
     transform: translateY(-50%);
+    background-image: url('orlincube.jpg');
+    background-size: cover;
+    background-position: right; 
+    background-repeat: no-repeat; 
   }
-  .obstacle {
+  .obstacle1 {
     width: 100px;
-    height: 20px;
-    background-color: #000000;
+    height: 200px;
+    background-color: #e74c3c;
     position: absolute;
-    left: 50%;
-    top: 80%;
-    
-    transform: translateY(-50%);
+    left: 500px;
+    top: calc(100vh - 200px); 
   }
+  .obstacle2 {
+    width: 100px;
+    height: 200px;
+    background-color: #e74c3c;
+    position: absolute;
+    left: 840px;
+    top: calc(100vh - 400px); 
+  }
+  .textbox {
+    
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+    left: 840px;
+    top: calc(100vh - 700px);   
+  }
+  .box{
+    width: 100px;
+    height: 70px;
+    position: absolute;
+    
+
+  }
+  
+  
+ 
 
   
 

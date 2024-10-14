@@ -1,26 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cube = document.querySelector('.cube');
-    const obstacle = document.querySelector('.obstacle');
-    const maxSpeed = 10;   // Maximum speed for left/right movement
-    const acceleration = 1; // Rate of acceleration
-    const friction = 0.05; // Rate of deceleration (friction effect)
-    const gravity = 2;   // Gravity pulling the cube down
-    const jumpVelocity = -32; // Initial velocity for jumping
-    let cubePositionX = 0;   // Horizontal position
-    let cubePositionY = 0;   // Vertical position (0 is the ground level)
-    let velocityX = 0;       // Current horizontal velocity
-    let velocityY = 0;       // Current vertical velocity (for jumping)
-    let isJumping = false;   // Flag to track if the cube is jumping
-    let isOnGround = true;   // Flag to track if the cube is on the ground
+    const obstacles = document.querySelectorAll('.obstacle'); 
+    const box = document.querySelectorAll('.box');
+    const maxSpeed = 10;   
+    const acceleration = 1; 
+    const friction = 0.05; 
+    const gravity = 2;   
+    const jumpVelocity = -32; 
+    let cubePositionX = 0;   
+    let cubePositionY = 0;   
+    let velocityX = 0;       
+    let velocityY = 0;      
+    let isJumping = false;   
+    let isOnGround = true;  
+    let isOnObstacle = false; 
     let isMovingRight = false;
     let isMovingLeft = false;
     let intervalId = null;
 
-    const cubeHeight = 50;   // Cube's height (adjust to match the actual size)
-    const groundLevel = window.innerHeight - cubeHeight;  // Set ground level
+    const cubeHeight = 25;   
+    const groundLevel = window.innerHeight - cubeHeight - 16;  
     cubePositionY = groundLevel;
 
-    // Function to update cube position with velocity and gravity
     function updateCubePosition() {
         // Horizontal movement
         if (isMovingRight) {
@@ -49,26 +50,50 @@ document.addEventListener('DOMContentLoaded', () => {
         // Clamp horizontal position within window boundaries
         cubePositionX = Math.max(0, Math.min(window.innerWidth - cube.offsetWidth, cubePositionX));
 
-        // Vertical movement (gravity and jumping)
         if (!isOnGround) {
             velocityY += gravity;  // Apply gravity when not on the ground
             cubePositionY += velocityY;
         }
 
         // Check if the cube hits the ground
-        if (cubePositionY >= groundLevel ) {
+        if (cubePositionY >= groundLevel && !isOnObstacle) {
             cubePositionY = groundLevel;
             velocityY = 0;
-            isOnGround = true;  // Cube is back on the ground
+            isOnGround = true;  
             isJumping = false;
         }
 
-        // Apply the positions to the cube
+        // Collision check with both obstacles
+        obstacles.forEach(obstacle => {
+            if (isCollidingTop(cube, obstacle)) {
+                handleTopCollision(obstacle);
+            } else if (isCollidingSides(cube, obstacle)) {
+                handleSideCollision(obstacle);
+            }
+        });
+
+        if (isOnObstacle) {
+            let isOffObstacle = true;
+            obstacles.forEach(obstacle => {
+                const obstacleRect = obstacle.getBoundingClientRect();
+                if (cubePositionX >= obstacleRect.left && cubePositionX <= obstacleRect.right) {
+                    isOffObstacle = false;
+                }
+            });
+            if (isOffObstacle) {
+                isOnObstacle = false;
+                isOnGround = false; // Start falling
+            }
+        }
+        if(isCollidingSides(cube, box))
+        {
+           window.location.href = 'projects.html';
+        }
+
         cube.style.left = `${cubePositionX}px`;
         cube.style.top = `${cubePositionY}px`;
     }
 
-    // Function to handle keydown events
     function handleKeyDown(event) {
         if (event.key === "ArrowRight") {
             isMovingRight = true;  // Start moving right
@@ -76,19 +101,46 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.key === "ArrowLeft") {
             isMovingLeft = true;   // Start moving left
         }
+        
+        
 
-        if (event.key === " " || event.key === "ArrowUp" && isOnGround && !isJumping) {
+        if ((event.key === "ArrowUp") && (isOnGround || isOnObstacle) && !isJumping) {
             isJumping = true;
             isOnGround = false;
+            isOnObstacle = false;  // Reset obstacle hold when jumping
             velocityY = jumpVelocity; // Apply jump velocity
+
         }
+        
 
         // Start the movement loop if it's not already running
         if (!intervalId) {
             intervalId = setInterval(updateCubePosition, 16); // 16ms for ~60 FPS
         }
     }
-    function isColliding(cube, obstacle) {
+
+    function isCollidingTop(cube, obstacle) {
+        const cubeRect = cube.getBoundingClientRect();
+        const obstacleRect = obstacle.getBoundingClientRect();
+
+        return (
+            cubeRect.bottom <= obstacleRect.top + velocityY && // Detect if the cube is coming down on the obstacle
+            cubeRect.bottom >= obstacleRect.top &&
+            cubeRect.right > obstacleRect.left &&
+            cubeRect.left < obstacleRect.right
+        );
+    }
+
+    function handleTopCollision(obstacle) {
+        const obstacleRect = obstacle.getBoundingClientRect();
+        cubePositionY = obstacleRect.top - cubeHeight - 0.5;  // Place the cube on top of the obstacle
+        velocityY = 0;  // Stop falling
+        isOnObstacle = true;  // Cube is now on the obstacle
+        isOnGround = true;    // Treat as ground
+        isJumping = false;    // Jump is reset
+    }
+
+    function isCollidingSides(cube, obstacle) {
         const cubeRect = cube.getBoundingClientRect();
         const obstacleRect = obstacle.getBoundingClientRect();
 
@@ -99,7 +151,22 @@ document.addEventListener('DOMContentLoaded', () => {
             cubeRect.right < obstacleRect.left
         );
     }
-    // Function to handle keyup events
+
+    function handleSideCollision(obstacle) {
+        const cubeRect = cube.getBoundingClientRect();
+        const obstacleRect = obstacle.getBoundingClientRect();
+
+        if (velocityX > 0 && cubeRect.right > obstacleRect.left) {
+            cubePositionX = obstacleRect.left - cubeRect.width - 0.5;
+            velocityX = 0; // Stop movement to the right
+        }
+
+        if (velocityX < 0 && cubeRect.left < obstacleRect.right) {
+            cubePositionX = obstacleRect.right + 0.5;
+            velocityX = 0; // Stop movement to the left
+        }
+    }
+
     function handleKeyUp(event) {
         if (event.key === "ArrowRight") {
             isMovingRight = false; // Stop accelerating to the right
@@ -107,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.key === "ArrowLeft") {
             isMovingLeft = false;  // Stop accelerating to the left
         }
-        
+
         // Stop movement if no keys are pressed
         if (!isMovingRight && !isMovingLeft && isOnGround && velocityX === 0) {
             clearInterval(intervalId);
