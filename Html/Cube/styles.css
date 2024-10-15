@@ -78,16 +78,25 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+  }
+  .textbox1{
     position: absolute;
     left: 840px;
     top: calc(100vh - 700px);   
+  }
+  .textbox2{
+    position: absolute;
+    left: 1200px;
+    top: calc(100vh - 100px);   
   }
   .box{
     width: 100px;
     height: 70px;
     position: absolute;
-    
-
+  }
+  .box1 {
+    font-size: 1;
   }
   
   

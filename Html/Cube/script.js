@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cube = document.querySelector('.cube');
     const obstacles = document.querySelectorAll('.obstacle'); 
-    const box = document.querySelectorAll('.box');
+    const box1 = document.querySelector('.box1');
+    const box2 = document.querySelector('.box2');
+
     const maxSpeed = 10;   
     const acceleration = 1; 
     const friction = 0.05; 
@@ -82,12 +84,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             if (isOffObstacle) {
                 isOnObstacle = false;
-                isOnGround = false; // Start falling
+                isOnGround = false; 
             }
         }
-        if(isCollidingSides(cube, box))
+        if(isCollidingSides(cube, box1))
         {
-           window.location.href = 'projects.html';
+        
+           window.location.href = 'about.html';
+        }
+        if (isCollidingSides(cube, box2))
+        {
+           window.location.href = 'about.html';
+
         }
 
         cube.style.left = `${cubePositionX}px`;
