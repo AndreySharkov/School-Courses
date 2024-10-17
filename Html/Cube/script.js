@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const obstacles = document.querySelectorAll('.obstacle'); 
     const box1 = document.querySelector('.box1');
     const box2 = document.querySelector('.box2');
+    const box3 = document.querySelector('.box3');
+
+
 
     const maxSpeed = 10;   
     const acceleration = 1; 
@@ -94,9 +97,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (isCollidingSides(cube, box2))
         {
-           window.location.href = 'about.html';
+           window.location.href = 'projescts.html';
 
         }
+        if (isCollidingSides(cube, box3))
+            {
+               window.location.href = 'contact.html';
+    
+            }
 
         cube.style.left = `${cubePositionX}px`;
         cube.style.top = `${cubePositionY}px`;
