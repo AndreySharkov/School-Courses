@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Date</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 25px;
+            background-color: darksalmon;
+        }
+        .date-display {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        img {
+            margin-top: 20px;
+            width: 200px; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Input current date</h1>
+    <div class="date-display" id="dateDisplay">2024-01-01</div>
+    <button id="plusButton">+</button>
+    <h1></h1>
+    <img src="https://arkeonews.net/wp-content/uploads/2021/04/Trojan-war-min.jpeg" id="imageTime">
+
+    <script>
+        const dateDisplay = document.getElementById('dateDisplay');
+        const plusButton = document.getElementById('plusButton');
+        const imageTime = document.getElementById('imageTime');
+
+        let currentDate = new Date("1999-12-01");
+
+        function updateDateDisplay() {
+            dateDisplay.textContent = currentDate.toISOString().split('T')[0];
+            if(currentDate.getFullYear() > 1999){
+            imageTime.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtNPaMhlbCuIz1bIl0VDXbivUWOHm-gQ7Dbw&s";
+            }
+        }
+
+        plusButton.addEventListener('click', () => {
+            currentDate.setDate(currentDate.getDate() + 1);
+            updateDateDisplay();
+        });
+
+        updateDateDisplay();
+        
+    </script>
+</body>
+</html>

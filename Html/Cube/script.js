@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     cubePositionY = groundLevel;
 
     function updateCubePosition() {
-        // Horizontal movement
         if (isMovingRight) {
             velocityX += acceleration;  // Accelerate to the right
         } 
@@ -42,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 velocityX += friction;  // Decelerate if moving left
             }
 
-            // Stop the cube completely when velocity is very low
             if (Math.abs(velocityX) < friction) {
                 velocityX = 0;
             }
@@ -97,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (isCollidingSides(cube, box2))
         {
-           window.location.href = 'projescts.html';
+           window.location.href = 'projects.html';
 
         }
         if (isCollidingSides(cube, box3))
