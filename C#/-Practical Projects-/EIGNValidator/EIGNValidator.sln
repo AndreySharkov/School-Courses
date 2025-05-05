@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EIGNValidator", "EIGNValidator.csproj", "{611096A2-7B79-490E-ADA3-CEC11EF6D919}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{611096A2-7B79-490E-ADA3-CEC11EF6D919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{611096A2-7B79-490E-ADA3-CEC11EF6D919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{611096A2-7B79-490E-ADA3-CEC11EF6D919}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{611096A2-7B79-490E-ADA3-CEC11EF6D919}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {95DD4B19-A37D-42EB-A03B-31DF5308D10A}
+	EndGlobalSection
+EndGlobal
