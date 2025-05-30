@@ -1,0 +1,38 @@
+/* Reset some browser default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #32c4ac;  
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.weather-card {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  text-align: center;
+}
+
+.weather-card h1 {  
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #f1f1f1;
+}
+
+.weather-info p,
+.time p {
+  font-size: 1  rem;
+  margin: 0.5rem 0;
+  color: #e0e0e0;
+}
