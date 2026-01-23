@@ -1,0 +1,50 @@
+CREATE DATABASE Airport;
+GO
+USE Airport;
+GO
+
+CREATE TABLE Passengers (
+    Id INT PRIMARY KEY IDENTITY,
+    FullName NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Pilots (
+    Id INT PRIMARY KEY IDENTITY,
+    FirstName NVARCHAR(30) NOT NULL,
+    LastName NVARCHAR(30) NOT NULL,
+    Age TINYINT NOT NULL,
+    Rating FLOAT
+);
+CREATE TABLE AircraftTypes (
+    Id INT PRIMARY KEY IDENTITY,
+    TypeName NVARCHAR(50) NOT NULL
+);
+CREATE TABLE Aircraft (
+    Id INT PRIMARY KEY IDENTITY,
+    Manufacturer NVARCHAR(25) NOT NULL,
+    Model NVARCHAR(30) NOT NULL,
+    Year INT NOT NULL,
+    FlightHours INT,
+    Condition CHAR(1) NOT NULL,
+    TypeId INT FOREIGN KEY REFERENCES AircraftTypes(Id)
+
+);
+CREATE TABLE PilotsAircraft (
+    PilotId INT FOREIGN KEY REFERENCES Pilots(Id),
+    AircraftId INT FOREIGN KEY REFERENCES Aircraft(Id),
+    PRIMARY KEY (PilotId, AircraftId)
+);
+CREATE TABLE Airports (
+    Id INT PRIMARY KEY IDENTITY,
+    AirportName NVARCHAR(70) NOT NULL,
+    Country NVARCHAR(100) NOT NULL
+);
+CREATE TABLE FlightDestinations (
+    Id INT PRIMARY KEY IDENTITY,
+    AirportId INT FOREIGN KEY REFERENCES Airports(Id),
+    Start DATETIME NOT NULL,
+    AircraftId INT FOREIGN KEY REFERENCES Aircraft(Id),
+    PassengerId INT FOREIGN KEY REFERENCES Passengers(Id),
+    TicketPrice DECIMAL(18, 2) DEFAULT 15
+);

@@ -1,0 +1,21 @@
+CREATE DATABASE Students
+
+CREATE TABLE Student(
+StudentId INT IDENTITY PRIMARY KEY NOT NULL, 
+Name VARCHAR(100) NOT NULL
+)
+
+CREATE TABLE Class(
+ClassId INT NOT NULL,
+Course VARCHAR(100) NOT NULL,
+)
+
+CREATE TABLE StudentClassRelation(
+StudentId INT NOT NULL,
+ClassID INT NOT NULL,
+
+CONSTRAINT PK_EmplayeesDepartments Primary KEY(StudentID, ClassId)
+
+)
+
+
