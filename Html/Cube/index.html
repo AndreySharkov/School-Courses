@@ -2,41 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Andrey Sharkov</title>
+  <title>Neon Cube - Marathon Course</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<h1>Use Arrow keys to move</h1>
 <body>
-  <div class="textbox textbox1">
-    <div class="box box1"></div> 
-    <article>
-       
-      <h3>About</h3>
-      <p>jump up</p>
-    </article>
-  </div>
-  <div class="textbox textbox2">
-    <div class="box box2"></div> 
-    <article>
-       
-      <h3>Projects</h3>
-      <p>come here</p>
-    </article>
-  </div>
-  <div class="textbox textbox3">
-    <div class="box box3"></div> 
-    <article>
-       
-      <h3>Contact</h3>
-      <p>jump here</p>
-    </article>
-  </div>
   
-  <div class="cube"></div>
-  <div class="obstacle obstacle1"></div>
-  <div class="obstacle obstacle2"></div>
-  <div class="ground"></div>
+  <h1>Hold Up/Space to Bunny Hop</h1>
+  
+  <div class="background-grid"></div>
+
+  <div class="game-world">
+      
+      <div class="cube"></div>
+
+      <div class="obstacle" style="width: 400px; height: 80px; left: 600px; bottom: 40px;"></div>
+      <div class="obstacle" style="width: 400px; height: 120px; left: 1300px; bottom: 40px;"></div>
+
+      <div class="orb" style="left: 1900px; bottom: 200px;"></div>
+      <div class="obstacle" style="width: 500px; height: 100px; left: 2400px; bottom: 40px;"></div>
+
+      <div class="obstacle" style="width: 200px; height: 60px; left: 3200px; bottom: 40px;"></div>
+      <div class="obstacle" style="width: 200px; height: 120px; left: 3600px; bottom: 40px;"></div>
+      <div class="obstacle" style="width: 200px; height: 180px; left: 4000px; bottom: 40px;"></div>
+      
+      <div class="obstacle" style="width: 300px; height: 40px; left: 4500px; bottom: 150px;"></div>
+      <div class="orb" style="left: 5000px; bottom: 250px;"></div>
+      <div class="obstacle" style="width: 300px; height: 40px; left: 5400px; bottom: 250px;"></div>
+      <div class="orb" style="left: 5900px; bottom: 250px;"></div>
+      <div class="obstacle" style="width: 300px; height: 40px; left: 6300px; bottom: 150px;"></div>
+
+      <div class="obstacle" style="width: 800px; height: 60px; left: 7000px; bottom: 40px;"></div>
+      <div class="obstacle" style="width: 200px; height: 150px; left: 8000px; bottom: 40px;"></div>
+
+      <div class="orb" style="left: 8400px; bottom: 300px;"></div>
+      <div class="obstacle" style="width: 300px; height: 40px; left: 8800px; bottom: 300px;"></div> <div class="orb" style="left: 9300px; bottom: 400px;"></div> <div class="obstacle" style="width: 300px; height: 40px; left: 9700px; bottom: 400px;"></div> <div class="obstacle" style="width: 300px; height: 200px; left: 10400px; bottom: 40px;"></div> <div class="orb" style="left: 11000px; bottom: 250px;"></div>
+      <div class="orb" style="left: 11500px; bottom: 350px;"></div>
+      <div class="orb" style="left: 12000px; bottom: 200px;"></div>
+
+      <div class="obstacle" style="width: 600px; height: 500px; left: 12500px; bottom: 40px;"></div>
+
+      <div class="textbox textbox1" style="left: 12600px; top: 150px;">
+        <article><h3>Victory</h3><p>Marathon Complete!</p></article>
+      </div>
+
+      <div class="ground"></div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

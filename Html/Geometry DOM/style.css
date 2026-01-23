@@ -1,0 +1,6 @@
+body { margin: 0; overflow: hidden; background: #111; font-family: 'Courier New', Courier, monospace; }
+#ui { 
+    position: absolute; top: 20px; left: 20px; color: #00ffcc; 
+    pointer-events: none; text-transform: uppercase;
+}
+.controls { color: white; font-size: 0.8rem; letter-spacing: 1px; margin-top: 5px; }

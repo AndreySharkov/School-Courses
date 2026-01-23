@@ -1,232 +1,71 @@
-
-* {
+body {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
- 
+    overflow: hidden; /* Hide scrollbars */
+    background-color: #1a0b2e; /* Dark purple base */
+}
 
-  h1{
-    background-color: #f9f9f9;
-    padding: 10px;
-    margin-bottom: 20px;
-    
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-    position: absolute;
-    left:0%;
-    top: 0%;
-
-  }
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* THE COOL BACKGROUND */
+.background-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
     height: 100vh;
-    background-color: #f0f0f0;
-    overflow: hidden;
-  }
-  .ground
-  {
-    width: 2000px;
-    
-    height: 20px;
-    background-color: #043e65;
-    position: absolute;
-    left: 0;
-    top: 99%;
-    transform: translateY(-50%);
-
-  }
-  
-  .cube {
-    width: 50px;
-    height: 50px;
-    background-color: #032b45;
-    position: absolute;
-    left: 0;
-    top: 94%;
-    transform: translateY(-50%);
-    /* background-image: url('orlincube.jpg'); */
-    background-size: cover;
-    background-position: right; 
-    background-repeat: no-repeat; 
-  }
-  .obstacle1 {
-    width: 100px;
-    height: 200px;
-    background-color: #e74c3c;
-    position: absolute;
-    left: 500px;
-    top: calc(100vh - 200px); 
-  }
-  .obstacle2 {
-    width: 100px;
-    height: 200px;
-    background-color: #e74c3c;
-    position: absolute;
-    left: 840px;
-    top: calc(100vh - 400px); 
-  }
-  .textbox {
-    
-    background-color: #f9f9f9;
-    padding: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    
-  }
-  .textbox1{
-    position: absolute;
-    left: 840px;
-    top: calc(100vh - 700px);   
-  }
-  .textbox2{
-    position: absolute;
-    left: 1200px;
-    top: calc(100vh - 100px);   
-  }
-  .box{
-    width: 100px;
-    height: 70px;
-    position: absolute;
-  }
-  .textbox3{
-    position: absolute;
-    left: 500px;
-    top: calc(100vh - 500px);  
-  }
-  .box1 {
-    font-size: 1;
-  }
-  
-  
- 
-
-  
-
-  html, body {
-    margin: 0;
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
-    background-image: url('https://coolbackgrounds.io/images/backgrounds/index/compute-ea4c57a4.png');
-    background-size: cover;
+    /* Creates a cool moving grid effect */
+    background-image: 
+        linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
     background-position: center;
-    background-attachment: fixed;
-    color: #333;
+    z-index: -1; /* Send to back */
 }
 
-header {
-    background-color: rgba(43, 47, 42, 0.9);
-    padding: 20px;
-    text-align: center;
+/* THE GAME WORLD CONTAINER */
+.game-world {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    will-change: transform; /* optimizing for movement */
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.cube {
+    position: absolute;
+    width: 25px; 
+    height: 25px;
+    background: #00ffcc; /* Neon Cyan */
+    box-shadow: 0 0 15px #00ffcc; /* Neon Glow */
 }
 
-nav ul li {
-    display: inline-block;
-    margin: 0 15px;
+.obstacle {
+    position: absolute;
+    background: #ff0055; /* Neon Pink */
+    box-shadow: 0 0 10px #ff0055;
+    bottom: 0; /* Align to bottom by default */
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 18px;
-    padding: 5px 10px;
-    transition: color 0.3s;
+/* LARGER ORB */
+.orb {
+    position: absolute;
+    width: 60px;  /* Bigger! */
+    height: 60px; /* Bigger! */
+    border: 5px solid #F1C40F;
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px #F1C40F;
+    z-index: 5;
+    animation: pulse 1.5s infinite;
 }
 
-nav ul li a:hover {
-    color: #f39c12;
+/* Make orb flash when active */
+.orb.active {
+    background-color: rgba(241, 196, 15, 0.8);
+    transform: scale(1.1);
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-}
-
-section#about {
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 800px;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    font-size: 36px;
-    font-weight: 700;
-    color: #2c3e50;
-}
-
-p {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #555;
-}
-
-section#projects {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 800px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    font-size: 30px;
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-#projects article {
-    background-color: #f9f9f9;
-    padding: 15px;
-    margin-bottom: 30px;
-    border-left: 4px solid #140077;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-#projects article h3 {
-    font-size: 24px;
-    margin-top: 0;
-    color: #34495e;
-}
-
-#projects article p {
-    color: #555;
-    line-height: 1.6;
-}
-
-#projects article a {
-    text-decoration: none;
-    color: #0066cc;
-    font-weight: 700;
-}
-
-#projects article a:hover {
-    text-decoration: underline;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #2b2f2a;
-    color: white;
-    margin-top: 40px;
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
