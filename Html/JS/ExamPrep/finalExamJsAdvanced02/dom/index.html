@@ -1,0 +1,178 @@
+<!doctype html>
+
+<html lang="bg">
+  <head>
+    <script defere src="./script.js"></script> 
+    <meta charset="UTF-8" />
+    <title>Event Registration</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        background: #f4f6f8;
+        overflow-x: hidden;
+        font-size: 18px;
+      }
+
+      header {
+        padding: 20px;
+        text-align: center;
+        background: #00796ba3;
+        color: white;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      #showForm {
+        padding: 14px 20px;
+        border: none;
+        border-radius: 6px;
+        background: #004d406b;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      /* MAIN LAYOUT */
+
+      main {
+        display: flex;
+        height: calc(100vh - 120px);
+      }
+
+      .section {
+        flex: 1;
+        padding: 30px;
+        overflow-y: auto;
+      }
+
+      .section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #00796b;
+      }
+
+      .standard {
+        background: #e3fbfd;
+      }
+
+      .vip {
+        background: #fff3e0;
+      }
+
+      /* LIST */
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        background: white;
+        padding: 18px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .remove {
+        background: #d32f2f;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+      }
+
+      /* SLIDE FORM */
+
+      #formPanel {
+        position: fixed;
+        top: 0;
+        right: -420px;
+        width: 350px;
+        height: 100%;
+        background: white;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        transition: 0.4s;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #formPanel.active {
+        right: 0;
+      }
+
+      #formPanel h3 {
+        text-align: center;
+      }
+
+      #formPanel input,
+      #formPanel select,
+      #formPanel button {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+      }
+
+      #formPanel button {
+        background: #00796b;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <button id="showForm">Show Registration Form</button>
+      <!-- <h1>Event Registration</h1> -->
+    </header>
+
+    <main>
+      <section class="section standard">
+        <h2>Standard Guests</h2>
+        <ul id="standardList"></ul>
+      </section>
+
+      <section class="section vip">
+        <h2>VIP Guests</h2>
+        <ul id="vipList">
+          <li>
+            Ivanzhela (ivanzhela.dincheva@buditel.bg)
+            <button class="remove">Remove</button>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- FORM PANEL -->
+
+    <div id="formPanel">
+      <h3>Register Guest</h3>
+
+      <input type="text" id="name" placeholder="Name" />
+      <input type="email" id="email" placeholder="Email" />
+
+      <select id="ticket">
+        <option value="Standard">Standard</option>
+        <option value="VIP">VIP</option>
+      </select>
+
+      <button id="registerBtn">Register</button>
+    </div>
+
+    <script>
+      document.getElementById("showForm").addEventListener("click", () => {
+        document.getElementById("formPanel").classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

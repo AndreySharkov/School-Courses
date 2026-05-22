@@ -1,5 +1,5 @@
 function encodeAndDecodeMessages() {
-    const textareas = document.queryASelectorll('textarea');
+    const textareas = document.querySelectorAll('textarea');
     const buttons = document.querySelectorAll('button');
 
     const encodeTextarea = textareas[0];

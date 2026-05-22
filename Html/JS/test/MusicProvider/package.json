@@ -1,0 +1,13 @@
+{
+  "name": "MusicProvider",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {},
+  "devDependencies": {
+    "chai": "^6.2.2",
+    "mocha": "^11.7.5"
+  },
+  "scripts": {
+    "test": "mocha musicProviderTests.js"
+  }
+}

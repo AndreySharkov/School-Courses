@@ -1,0 +1,69 @@
+version=1
+
+# This file caches language service data to improve the performance of C# Dev Kit.
+# It is not intended for manual editing. It can safely be deleted and will be
+# regenerated automatically. For more information, see https://aka.ms/lscache
+#
+# To control where cache files are stored, use the following VS Code setting:
+#   "dotnet.projectsystem.cacheInProjectFolder": true
+
+[project]
+language=C#
+primary
+lastDtbSucceeded
+
+[properties]
+AssemblyName=Reverse Strings
+CommandLineArgsForDesignTimeEvaluation=-langversion:10.0 -define:TRACE
+CompilerGeneratedFilesOutputPath=
+MaxSupportedLangVersion=10.0
+ProjectAssetsFile=<PATH>obj/project.assets.json
+RootNamespace=Reverse_Strings
+RunAnalyzers=
+RunAnalyzersDuringLiveAnalysis=
+SolutionPath=*Undefined*
+TargetFrameworkIdentifier=.NETCoreApp
+TargetPath=<PATH>bin/Debug/net6.0/Reverse Strings.dll
+TargetRefPath=<PATH>obj/Debug/net6.0/ref/Reverse Strings.dll
+TemporaryDependencyNodeTargetIdentifier=net6.0
+
+[commandLineArguments]
+/noconfig
+/unsafe-
+/checked-
+/nowarn:1701,1702,1701,1702
+/fullpaths
+/nostdlib+
+/errorreport:prompt
+/warn:6
+/define:TRACE;DEBUG;NET;NET6_0;NETCOREAPP;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NETCOREAPP1_0_OR_GREATER;NETCOREAPP1_1_OR_GREATER;NETCOREAPP2_0_OR_GREATER;NETCOREAPP2_1_OR_GREATER;NETCOREAPP2_2_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER
+/highentropyva+
+/nullable:enable
+/debug+
+/debug:portable
+/filealign:512
+/optimize-
+/out:"obj/Debug/net6.0/Reverse Strings.dll"
+/refout:"obj/Debug/net6.0/refint/Reverse Strings.dll"
+/target:exe
+/warnaserror-
+/utf8output
+/deterministic+
+/langversion:10.0
+/warnaserror+:NU1605
+
+[sourceFiles]
+obj/Debug/net6.0/
+ .NETCoreApp,Version=v6.0.AssemblyAttributes.cs
+ Reverse Strings.AssemblyInfo.cs
+ Reverse Strings.GlobalUsings.g.cs
+Program.cs
+
+[analyzerReferences]
+../../../../../../../../usr/lib64/dotnet/sdk/10.0.104/Sdks/Microsoft.NET.Sdk/analyzers/
+ Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll
+ Microsoft.CodeAnalysis.NetAnalyzers.dll
+
+[analyzerConfigFiles]
+../../../../../../../../usr/lib64/dotnet/sdk/10.0.104/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_6_default.globalconfig
+obj/Debug/net6.0/Reverse Strings.GeneratedMSBuildEditorConfig.editorconfig
